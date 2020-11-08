@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calculator | Manav | 201800044</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <style type="text/css">
+
+body{
+        background-image: url(https://media.istockphoto.com/photos/office-supply-picture-id814265956?b=1&k=6&m=814265956&s=170667a&w=0&h=WEtaPsZBqE13OvXbDiKfySYylwGkD38cPEg3RmFDMNI=);
+        background-size: cover;
+        background-repeat: no-repeat;
+     }
+
+.myButton {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px 17px;
+    border: 0px solid #2f91a9;
+    border-radius: 14px;
+    background: #4deeff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#4deeff), to(#2f91a9));
+    background: -moz-linear-gradient(top, #4deeff, #2f91a9);
+    background: linear-gradient(to bottom, #4deeff, #2f91a9);
+    -webkit-box-shadow: #50f8ff 0px 0px 5px 0px;
+    -moz-box-shadow: #50f8ff 0px 0px 5px 0px;
+    box-shadow: #50f8ff 0px 0px 5px 0px;
+    text-shadow: #226879 1px -2px 1px;
+    font: normal normal bold 20px georgia;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase
+}
+.myButton:hover {
+    border: 0px solid #43cff2;
+    background: #5cffff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#5cffff), to(#38aecb));
+    background: -moz-linear-gradient(top, #5cffff, #38aecb);
+    background: linear-gradient(to bottom, #5cffff, #38aecb);
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase
+}
+.myButton:active {
+    background: #2f91a9;
+    background: -webkit-gradient(linear, left top, left bottom, from(#2f91a9), to(#2f91a9));
+    background: -moz-linear-gradient(top, #2f91a9, #2f91a9);
+    background: linear-gradient(to bottom, #2f91a9, #2f91a9);
+    text-transform: uppercase
+}
+.myButton:focus {
+    text-transform: uppercase
+}
+.formdiv{
+    width: 40%;
+    padding-bottom: 1.5%;
+    padding-top: 1.5%;
+    padding-left: 1.5%;
+}
+.formdiv input{
+    border:none;
+    outline: none;
+    opacity: 0.7;
+}
+        
+    </style>
+    <script>
+            let oper = "+";
+            let num1, num2;
+            console.log(oper);
+            $(document).ready(function () {
+                $(".operator").change(function () {
+                    var selValue = $("input[type='radio']:checked").val();
+                    oper = selValue;
+                    console.log(oper);
+                });
+            });
+            function Calculate() {
+                num1 = parseInt(document.getElementById("number1").value);
+                num2 = parseInt(document.getElementById("number2").value);
+                console.log(num1)
+                console.log(num2)
+                let result;
+                if (oper == "+") {
+                    result = num1 + num2;
+                }
+                else if (oper == "-") {
+                    result = num1 - num2;
+                }
+                else if (oper == "*") {
+                    result = num1 * num2;
+                }
+                else if (oper == "/") {
+                    result = num1 / num2;
+                }
+                console.log(result.toString())
+                document.getElementById("finalResult").value = result.toString();
+            }
+    </script>
+</head>
+
+<body style="width: 100%; height: 100%;">
+    <div class="container-fluid" style="text-align: center; padding-top: 5%;">
+        <h1>CALCULATOR</h1>
+        <br>
+        <br>
+    </div>
+    <div class="formdiv">
+        <form>
+            <label for="numbers">Values</label>
+            <div class="form-row" id="numbers">
+                <div class="col">
+                    <input type="number" class="form-control" placeholder="1st Number" id="number1">
+                </div>
+                <br>
+                <div class="col">
+                    <input type="number" class="form-control" placeholder="2nd Number" id="number2">
+                </div>
+            </div>
+            <br>
+            <div class="form-row">
+                <input type="radio" name="operator" class="operator" value="+"> Add 
+                <input type="radio" name="operator" class="operator" value="-"> Substract
+                <input type="radio" name="operator" class="operator" value="*"> Multiply
+                <input type="radio" name="operator" class="operator" value="/"> Divide
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="col">
+                    <button type="button" class="myButton" onclick="Calculate()">Submit</button>
+                </div>
+            </div>
+            <br>
+            <label for="result">Result</label>
+            <div class="form-row" id="result">
+                <input class="form-control" type="text" placeholder="Answer" id="finalResult" readonly>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
